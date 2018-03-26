@@ -48,6 +48,11 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.postgesql</groupId>
+			<artifactId>postgesql</artifactId>
+            <version>9.4-1201-jdbc4</version>
+		</dependency>
 	</dependencies>
 
 	<build>
