@@ -7,6 +7,13 @@ void display(int cross_pos, int toe_pos);
 int pressing_key(void);
 void sleeping_time();
 
+struct Ball {
+  int x;
+  int y;
+  int direction_x; // 0 - вправо, 1 - влево
+  int direction_y; // 0 - вверх, 1 - вниз
+} ball;
+
 int main() {
     int term_size_x = 80;
     int term_size_y = 25;
@@ -18,10 +25,10 @@ int main() {
     int key_id = 0;
     int esc_key = 27;
 
-    int ball_x = 40;
-    int ball_y = 12;
-    int ball_direction_x = 1; // 0 - вправо, 1 - влево
-    int ball_direction_y = 1; // 0 - вверх, 1 - вниз
+    ball.x = 40;
+    ball.y = 12;
+    ball.direction.x = 1; // 0 - вправо, 1 - влево
+    ball.direction_y = 1; // 0 - вверх, 1 - вниз
     
     while (key_id != esc_key) {
       if (has_winner()) {
@@ -29,10 +36,11 @@ int main() {
       }
 
       key_id = pressing_key();
-      
-      ball_x += ball_direction_x == 1 ? 1 : -1;
+      rockets_move(rocket1, rocket2, key_id);
 
-      ball_y += ball_direction_y == 1 ? 1 : -1;
+      ball.x += ball.direction_x == 1 ? 1 : -1;
+
+      ball.y += ball.direction_y == 1 ? 1 : -1;
       if (ball_y >= term_size_y) {
         ball_direction_y = 0;
       }
