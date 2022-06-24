@@ -18,8 +18,16 @@ int main() {
 
     int key_id = 0;
     int esc_key = 27;
+
+    int ball_x = 40;
+    int ball_y = 12;
+    int ball_direction = 1; // 0 - вправо, 1 - влево
+
     while (key_id != esc_key) {
       key_id = pressing_key();
+      
+      
+
       display(cross_position, toe_position);
       sleeping_time();
     }
@@ -28,10 +36,15 @@ int main() {
 void display(int cross_pos, int toe_pos) {
     int term_size_x = 80;
     int term_size_y = 25;
+  
+    int ball_x = 40;
+    int ball_y = 12;
 
     char cross = 'X';
     char toe = '0';
     char space = ' ';
+
+    int field [term_size_x][term_size_y] = {0};
 
     # int max_pos = (cross_pos > toe_pos) ? cross_pos : toe_pos;
     
