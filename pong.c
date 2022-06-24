@@ -8,30 +8,47 @@ int pressing_key(void);
 void sleeping_time();
 
 int main() {
-    int cross_position, toe_position;
-    printf("Enter the \"X\" and \"O\" position:");
+    int term_size_x = 80;
+    int term_size_y = 25;
 
-    if (scanf("%d%d", &cross_position, &toe_position) != 2 || cross_position < 0 || toe_position < 0) {
-        printf("Invalid position");
-        return -1;
-    }
+    int win_flag = 0;
+    int player_score_1 = 0;
+    int player_score_2 = 0; 
 
     int key_id = 0;
     int esc_key = 27;
 
     int ball_x = 40;
     int ball_y = 12;
-    int ball_direction = 1; // 0 - вправо, 1 - влево
-
+    int ball_direction_x = 1; // 0 - вправо, 1 - влево
+    int ball_direction_y = 1; // 0 - вверх, 1 - вниз
+    
     while (key_id != esc_key) {
+      if (has_winner()) {
+          break;
+      }
+
       key_id = pressing_key();
       
-      
+      ball_x += ball_direction_x == 1 ? 1 : -1;
 
-      display(cross_position, toe_position);
+      ball_y += ball_direction_y == 1 ? 1 : -1;
+      if (ball_y >= term_size_y) {
+        ball_direction_y = 0;
+      }
+     if (ball_y <= 0) {
+        ball_direction_y = 1;
+      } 
+
+
+      display();
       sleeping_time();
     }
+
+    return 0;
 }
+
+
 
 void display(int cross_pos, int toe_pos) {
     int term_size_x = 80;
