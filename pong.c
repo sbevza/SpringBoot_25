@@ -34,12 +34,12 @@ int main() {
   int player2_score = 0;
 
   int key_id = 0;
-  int esc_key = 27;
+  char esc_key = 'q';
 
-  ball.x = 40;
-  ball.y = 12;
-  ball.direction_x = 1; // 0 - вправо, 1 - влево
-  ball.direction_y = 1; // 0 - вверх, 1 - вниз
+  int ball_x = TERM_SIZE_X / 2;
+  int ball_y = TERM_SIZE_Y / 2;
+  int ball_direction_x = 1; // 0 - вправо, 1 - влево
+  int ball_direction_y = 1; // 0 - вверх, 1 - вниз
 
   while (key_id != esc_key) {
     if (has_winner(player1_score, player2_score)) {
@@ -50,7 +50,7 @@ int main() {
     players_movement(player1_y, player2_y, key_id);
     ball_movement(ball);
 
-    //display();
+    display(player1_y, player2_y, );
     //sleeping_time();
   }
 
