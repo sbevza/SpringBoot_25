@@ -70,6 +70,26 @@ void ball_movement(Ball ball) {
     } 
 }
 
+void rockets_movement(Rocket rocket1, Rocket rocket2, int key_id) {
+    switch (key_id) {
+case 'k':
+  
+  break;
+case 'm':
+  
+  break;
+case 'a':
+  
+  break;
+case 'z':
+  
+  break;
+default:
+  break;
+}
+   
+}
+
 void display(player1, player2) {
     int term_size_x = 80;
     int term_size_y = 25;
