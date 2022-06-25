@@ -61,15 +61,17 @@ int main() {
 int ball_bound_checking_x(int player1_y, int player2_y, int ball_x, int ball_y, int ball_direction_x) {
   int result = 0;
   if ((ball_direction_x == 1 && ball_x == TERM_SIZE_X && ball_y == player2_y)
-     || (ball_direction_x == 1 && ball_direction_x == player2_y + 1)
-     || (ball_direction_x == 1 && ball_direction_x == player2_y + 2) {
+     || (ball_direction_x == 1 && ball_x == TERM_SIZE_X && ball_y == player2_y + 1)
+     || (ball_direction_x == 1 && ball_x == TERM_SIZE_X && ball_y == player2_y + 2)) {
+        
         result = 0;
   }
   
-  if ((ball_direction_x == 0 && ball_direction_x == player2_y)
-     || (ball_direction_x == 1 && ball_direction_x == player2_y + 1)
-     || (ball_direction_x == 1 && ball_direction_x == player2_y + 2) {
-        result = 0;
+  if ((ball_direction_x == 0 && ball_x == 1 && ball_y == player1_y)
+     || (ball_direction_x == 0 && ball_x == 1 && ball_y == player1_y + 1)
+     || (ball_direction_x == 0 && ball_x == 1 && ball_y == player1_y + 2)) {
+        
+        result = 1;
   }
 }
 
