@@ -107,16 +107,48 @@ void players_movement(int player1, int player2, int key_id) {
 
 }
 
-void display(int player1, Player player2) {
+void display(int player1, int player2, int ball_x, int ball_y) {
 
   char cross = 'X';
-  char toe = '0';
+  char ball = '0';
   char space = ' ';
 
   // int field[term_size_x][term_size_y] = {0};
 
   for (int i = 1; i <= TERM_SIZE_Y; i++) {
     for (int j = 1; j <= TERM_SIZE_X; j++) {
+      // рисуем мяч
+      if (i == ball_  && j == ball_x) {
+        printf("%c", ball);
+      } 
+      
+      // рисуем игрока 1
+      else if (i == 1 && j == player1) {
+        printf("%c", cross);
+      }
+      else if (i == 1 && j == player1 + 1) {
+        printf("%c", cross);
+      }
+      else if (i == 1 && j == player1 + 2) {
+        printf("%c", cross);
+      }
+
+      // рисуем игрока 2
+      else if (i == TERM_SIZE_X && j == player2) {
+        printf("%c", cross);
+      }
+      else if (i == TERM_SIZE_X && j == player2 + 1) {
+        printf("%c", cross);
+      }
+      else if (i == TERM_SIZE_X && j == player2 + 2) {
+        printf("%c", cross);
+      }
+      
+      // пустота
+      else {
+        printf("%c", space);
+      }
+
 //      if (i == "cross_pos") {
 //        printf("%c", cross);
 //      } else if (i == toe_pos) {
