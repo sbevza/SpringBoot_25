@@ -16,12 +16,13 @@ struct Ball {
   int direction_y; // 0 - вверх, 1 - вниз
 } ball;
 
-void display(int, int, int);
+void display(int, int, int, int);
 int pressing_key();
 void sleeping_time();
-void ball_movement(Ball);
+void ball_movement(int, int);
 void players_movement(int, int, int);
 int has_winner(int, int);
+int ball_bound_checking_x(int, int, int, int, int);
 
 int main() {
   int term_size_x = 80;
@@ -49,12 +50,16 @@ int main() {
     key_id = pressing_key();
     players_movement(player1_y, player2_y, key_id);
     ball_movement(ball);
-
-    display(player1_y, player2_y, );
+    ball_bound_checking(player1_y, player2_y, ball_x, );
+    display(player1_y, player2_y, ball_x, ball_y, ball_direction_x);
     //sleeping_time();
   }
 
   return 0;
+}
+
+int ball_bound_checking_x(int player1_y, int player2_y, int ball_x, int ball_y, int ball_direction_x) {
+  
 }
 
 int has_winner(int player1, int player2) {
