@@ -16,14 +16,6 @@ struct Ball {
   int direction_y; // 0 - вверх, 1 - вниз
 } ball;
 
-struct Player {
-  int x;
-  int y;
-  int winer;
-  int score;
-  int size;
-};
-
 void display(int, int, int);
 int pressing_key();
 void sleeping_time();
@@ -68,7 +60,8 @@ int main() {
 int has_winner(int player1, int player2) {
   int result = 0;
   if (player1 >= WINNING_SCORE || player2 >= WINNING_SCORE) {
-    result = player1 > player2 ? player1 : player2;
+    result = player1 > player2 ? 1 : 2;
+    printf("Победил %d игрок", result);
   }
   return result;
 }
