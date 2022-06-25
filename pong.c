@@ -19,6 +19,7 @@ struct Player {
   int y;
   int winer = 0;
   int score = 0;
+  int size = 3;
 }
 
 int main() {
@@ -47,7 +48,7 @@ int main() {
       }
 
       key_id = pressing_key();
-      rockets_movement(rocket1, rocket2, key_id);
+      players_movement(player1, player2, key_id);
       
       ball_movement(ball);
 
@@ -70,19 +71,27 @@ void ball_movement(Ball ball) {
     } 
 }
 
-void rockets_movement(Rocket rocket1, Rocket rocket2, int key_id) {
+void players_movement(Player player1, Player player2, int key_id) {
     switch (key_id) {
 case 'k':
-  
+  if (player2.y > 0) {
+    player2.y--;
+  }
   break;
 case 'm':
-  
+  if ((player2.y + player2.size) < term_size_y) {
+    player2.y++;
+  }
   break;
 case 'a':
-  
+  if (player1.y > 0) {
+    player1.y--;
+  }
   break;
 case 'z':
-  
+  if ((player1.y + player1.size) < term_size_y) {
+    player1.y++;
+  };
   break;
 default:
   break;
