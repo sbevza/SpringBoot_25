@@ -24,7 +24,7 @@ struct Player {
   int size;
 };
 
-void display(int, int);
+void display(int, int, int);
 int pressing_key();
 void sleeping_time();
 void ball_movement(Ball);
@@ -114,7 +114,7 @@ void players_movement(int player1, int player2, int key_id) {
 
 }
 
-void display(Player player1, Player player2) {
+void display(int player1, Player player2) {
 
   char cross = 'X';
   char toe = '0';
